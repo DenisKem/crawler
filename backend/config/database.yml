@@ -23,7 +23,10 @@ default: &default
 
 development:
   <<: *default
-  database: app_development
+  host:     <%= ENV.fetch("PG_HOST") %>
+  database: <%= ENV.fetch("PG_DB") %>
+  username: <%= ENV.fetch("PG_USER") %>
+  password: <%= ENV.fetch("PG_PASSWORD") %>
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
